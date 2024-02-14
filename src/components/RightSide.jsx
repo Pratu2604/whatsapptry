@@ -15,14 +15,14 @@ function RightSide(props) {
    
 
   const handleSend = () => {
-    if (input) { 
+    // if (input) { 
       setInput("");
       let newObj={}  
       newObj.text=input
       newObj.time=time
       console.log(newObj)
       props.onMsgSend(newObj)
-    }
+    // }
   };
   const handleSearchChange = (e) => {
     setInput(e.target.value);
