@@ -1,22 +1,29 @@
 import React, { useState } from "react";
-import { Box, Paper, Divider} from "@mui/material";
+import { Box, Paper, Divider } from "@mui/material";
 import bg from "./chatbg.jpeg";
 import chatbg from "./WhatsAppFront.jpeg";
 import AppBarRight from "./AppBarRight";
 import TextBarRight from "./TextBarRight";
 
 function RightSide(props) {
-  const [messages, setMessage] = useState(props.selectedState.massage);
   const [input, setInput] = useState("");
+  let d = new Date();
+  let time =d.toLocaleTimeString(undefined, {
+    hour:   '2-digit',
+    minute: '2-digit',
+});
+   
 
   const handleSend = () => {
-    if (input.trim() !== "") {
-      // setMessages([...messages, { text: input, sender: "user" }]);
+    if (input) { 
       setInput("");
+      let newObj={}  
+      newObj.text=input
+      newObj.time=time
+      console.log(newObj)
+      props.onMsgSend(newObj)
     }
   };
-  // console.log(props.selectedState.massage)
-
   const handleSearchChange = (e) => {
     setInput(e.target.value);
   };
@@ -47,18 +54,11 @@ function RightSide(props) {
             }}
           >
             <Paper style={styles1}>
-              {messages.map((message, index) => (
-                <Box
-                  display="flex"
-                  justifyContent={
-                     "flex-end" 
-                  
-                  }
-                  
-                >
+              {props.selectedState.message.map((messages, index) => (
+                <Box display="flex" justifyContent={"flex-end"}>
                   <Box
-                  key={index}
-                  mt={1}
+                    key={index}
+                    mt={1}
                     color="#E9EDEF"
                     maxWidth="70%"
                     px={2}
@@ -68,8 +68,7 @@ function RightSide(props) {
                     bgcolor={"#0b846d"}
                     boxShadow="0px 1px 2px rgba(0, 0, 0, 0.1)"
                   >
-                    
-                    {messages[index]}
+                    {messages.text} {messages.time}
                   </Box>
                 </Box>
               ))}
@@ -92,26 +91,5 @@ function RightSide(props) {
     );
   }
 }
-
-// function Message({ message }) {
-//   return (
-// <Box
-//   mt={1}
-//   display="flex"
-//   justifyContent={message.sender === "user" ? "flex-end" : "flex-start"}
-// >
-//       <Box
-// maxWidth="70%"
-// px={2}
-// py={1}
-// borderRadius="10px"
-// bgcolor={message.sender === "user" ? "#dcf8c6" : "#fff"}
-// boxShadow="0px 1px 2px rgba(0, 0, 0, 0.1)"
-//       >
-//         {message.text}
-//       </Box>
-//     </Box>
-//   );
-// }
 
 export default RightSide;

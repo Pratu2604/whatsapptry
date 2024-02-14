@@ -9,10 +9,9 @@ function AppBarLeft() {
       sx={{ background: "#1f2c33", padding: "0px 20px" }}
       display="flex"
       flexDirection="row"
-      justifyContent="space-between"
-      // alignItems="center"
+      alignItems="center"
     >
-      <Box >
+      <Box>
         <Avatar />
       </Box>
       <Box

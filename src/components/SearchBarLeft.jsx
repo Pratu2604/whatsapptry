@@ -1,11 +1,13 @@
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
-import { Paper } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import SearchIcon from "@mui/icons-material/Search";
 
 function SearchBarLeft(props) {
   return (
+    <Grid container>
+      <Grid item sm={12} md={12} lg={12}>
     <Paper
       component="form"
       sx={{
@@ -27,6 +29,8 @@ function SearchBarLeft(props) {
       />
       <FilterListIcon sx={{ color: "white" }} />
     </Paper>
+    </Grid>
+    </Grid>
   );
 }
 export default SearchBarLeft;

@@ -11,6 +11,7 @@ function LeftSide(props) {
   //     minute: '2-digit',
   // });
 
+
   const cloneContactState = [...props.contactState];
   const [searchTerm, setSearchTerm] = useState("");
 

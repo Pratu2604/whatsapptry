@@ -13,17 +13,11 @@ import {
 import CheckIcon from '@mui/icons-material/Check';
 
 function ContactListLeft(props) {
-
-  let d = new Date();
-  let time =d.toLocaleTimeString(undefined, {
-    hour:   '2-digit',
-    minute: '2-digit',
-});
   return (
     <List sx={{ background: "#1f2c33" }}>
       {props.filteredContacts.map((contact, index) => (
-        <Grid item key={index}>
-          <ListItem alignItems="flex-start">
+        <Grid item >
+          <ListItem alignItems="flex-start" key={index}>
             <ListItemButton
               onClick={() => {
                 props.handleContactClick(contact);
@@ -33,7 +27,7 @@ function ContactListLeft(props) {
                 <Avatar alt={contact.name} />
               </ListItemAvatar>
               <ListItemText
-                primary={<Typography color= "white" variant="body1" ><Box display="flex" justifyContent="space-between"><Box>{contact.name}</Box><Box fontSize="12px" mt={.5}>{time}</Box></Box></Typography>}
+                primary={<Typography color= "white" variant="body1" ><Box display="flex" justifyContent="space-between"><Box>{contact.name}</Box><Box fontSize="12px" mt={.5}>{contact.message[0].time}</Box></Box></Typography>}
                 secondary={
                   <Typography
                     sx={{ display: "inline", color: "white" }}
@@ -42,7 +36,7 @@ function ContactListLeft(props) {
                     color="text.primary"
                   ><Box display="flex">
                     <Box><CheckIcon sx={{height:"18px"}} mt={.07}/></Box>
-                    <Box mt={.07}>{contact.massage[0]}</Box>
+                    <Box mt={.07}>{contact.message[0].text}</Box>
                     </Box>
                   </Typography>
                   

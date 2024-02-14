@@ -1,13 +1,14 @@
-
-import './App.css';
-import HomePage from './components/HomePage';
-import { Box } from '@mui/material';
+import "./App.css";
+import HomePage from "./components/HomePage";
+import {  Grid } from "@mui/material";
 
 function App() {
   return (
-    <Box>
-      <HomePage/>
-    </Box>
+    <Grid container>
+      <Grid item sm={12} md={12} lg={12}>
+      <HomePage />
+      </Grid>
+    </Grid>
   );
 }
 
