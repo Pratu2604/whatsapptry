@@ -23,6 +23,7 @@ function ContactListLeft(props) {
               onClick={() => {
                 props.handleContactClick(contact);
               }}
+              sx={props.selectedState &&{backgroundColor:"red"}}
             >
               <ListItemAvatar>
                 <Avatar alt={contact.name} />

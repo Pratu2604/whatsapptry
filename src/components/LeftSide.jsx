@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AppBarLeft from "./AppBarLeft";
 import SearchBarLeft from "./SearchBarLeft";
 import ContactListLeft from "./ContactListLeft";
-import { Grid } from "@mui/material";
+import { Grid,Box } from "@mui/material";
 
 function LeftSide(props) {
   //   let d = new Date();
@@ -11,9 +11,7 @@ function LeftSide(props) {
   //     minute: '2-digit',
   // });
 
-
-  // const cloneContactState = [...props.contactState];
-  let cloneContactState=JSON.parse(JSON.stringify(props.contactState))
+  const cloneContactState = [...props.contactState];
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredContacts = cloneContactState.filter((contact) =>
@@ -25,18 +23,21 @@ function LeftSide(props) {
   };
 
   const handleContactClick = (contact) => {
-    // console.log(contact);
     props.setSelectedState(contact);
+    let color="black";
+    if(props.selectState){
+      color="red";
+    }
   };
 
   return (
     <Grid container sx={{ height: "90%" }}>
-      <AppBarLeft />
+      <Box width="30%"><AppBarLeft /></Box>
       <Grid container direction="column" height="100%">
         <Grid item>
           <SearchBarLeft handleSearchChange={handleSearchChange} />
         </Grid>
-        <Grid item sx={{ flex: 1, overflow: "scroll", scrollbarWidth: "none" }}>
+        <Grid item sx={{ flex: 1, overflow: "scroll", scrollbarWidth: "none", width:"100%" }}>
           <ContactListLeft
             filteredContacts={filteredContacts}
             selectState={props.selectState}

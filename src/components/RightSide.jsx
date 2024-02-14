@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Paper, Divider } from "@mui/material";
+import { Box, Paper, Divider, Typography } from "@mui/material";
 import bg from "./chatbg.jpeg";
 import chatbg from "./WhatsAppFront.jpeg";
 import AppBarRight from "./AppBarRight";
@@ -7,6 +7,7 @@ import TextBarRight from "./TextBarRight";
 
 function RightSide(props) {
   const [input, setInput] = useState("");
+
   let d = new Date();
   let time = d.toLocaleTimeString(undefined, {
     hour: "2-digit",
@@ -18,16 +19,19 @@ function RightSide(props) {
     let newObj = {};
     newObj.text = input;
     newObj.time = time;
-    console.log(newObj);
     props.onMsgSend(newObj);
   };
+
   const handleSearchChange = (e) => {
     setInput(e.target.value);
   };
+
   const styles1 = {
     backgroundImage: `url(${bg})`,
-    height: "100vh",
+    maxHeight:"fit-content",
+    height:"82vh"
   };
+
   const styles2 = {
     backgroundImage: `url(${chatbg})`,
   };
@@ -50,7 +54,7 @@ function RightSide(props) {
               scrollbarWidth: "none",
             }}
           >
-            <Paper style={styles1}>
+            <Paper style={styles1} >
               {props.selectedState.message.map((messages, index) => (
                 <Box display="flex" justifyContent={"flex-end"}>
                   <Box
@@ -64,8 +68,12 @@ function RightSide(props) {
                     mr={"20px"}
                     bgcolor={"#0b846d"}
                     boxShadow="0px 1px 2px rgba(0, 0, 0, 0.1)"
+                    display="flex"
+                    justifyContent="space-between"
+                    gap="12px"
                   >
-                    {messages.text} {messages.time}
+                    <Typography variant="body1">{messages.text}</Typography>
+                    <Typography variant="caption" mt={1.2}>{messages.time}</Typography>
                   </Box>
                 </Box>
               ))}

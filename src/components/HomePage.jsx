@@ -26,15 +26,13 @@ function HomePage() {
     let msgarr=selectedState.message;
     msgarr.push(msg);
     let index=temparr.findIndex(contact=>contact.contact_no===selectedState.contact_no)
-     temparr[index].message=msgarr;
-    setContactState(temparr)
-    // let index=contactState.findIndex(contact=>contact.contact_no===selectedState.contact_no)
-    // contactState[index].message=msgarr;
+    temparr[index].message=msgarr;
+    setContactState(temparr);
   }
 
   return (
     <Box display="flex" flexDirection="row" height="100vh">
-      <Box width="30%" sx={{ background: "#1f2c33" }}>
+      <Box width="32%" sx={{ background: "#1f2c33" }}>
         <LeftSide
           contactState={contactState}
           setSelectedState={setSelectedState}
@@ -42,7 +40,7 @@ function HomePage() {
         />
       </Box>
       <Box sx={{ border: ".05px solid #2f3b44" }} />
-      <Box width="70%" sx={{ background: "#1f2c33" }}>
+      <Box width="68%" sx={{ background: "#1f2c33" }}>
         <RightSide selectedState={selectedState} onMsgSend={onMsgSend} contactState={contactState}/>
       </Box>
     </Box>
