@@ -8,21 +8,18 @@ import TextBarRight from "./TextBarRight";
 function RightSide(props) {
   const [input, setInput] = useState("");
   let d = new Date();
-  let time =d.toLocaleTimeString(undefined, {
-    hour:   '2-digit',
-    minute: '2-digit',
-});
-   
+  let time = d.toLocaleTimeString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   const handleSend = () => {
-    // if (input) { 
-      setInput("");
-      let newObj={}  
-      newObj.text=input
-      newObj.time=time
-      console.log(newObj)
-      props.onMsgSend(newObj)
-    // }
+    setInput("");
+    let newObj = {};
+    newObj.text = input;
+    newObj.time = time;
+    console.log(newObj);
+    props.onMsgSend(newObj);
   };
   const handleSearchChange = (e) => {
     setInput(e.target.value);

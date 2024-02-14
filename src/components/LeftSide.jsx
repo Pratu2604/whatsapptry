@@ -12,7 +12,8 @@ function LeftSide(props) {
   // });
 
 
-  const cloneContactState = [...props.contactState];
+  // const cloneContactState = [...props.contactState];
+  let cloneContactState=JSON.parse(JSON.stringify(props.contactState))
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredContacts = cloneContactState.filter((contact) =>

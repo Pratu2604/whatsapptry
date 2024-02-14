@@ -19,14 +19,17 @@ function HomePage() {
   ]);
 
   const [selectedState, setSelectedState] = useState(null);
+  // const [newmsg,setNewmsg]=useState([])
 
   function onMsgSend(msg){
-    let temparr=[...contactState]
-    console.log(msg)
+    let temparr=JSON.parse(JSON.stringify(contactState));
     let msgarr=selectedState.message;
     msgarr.push(msg);
     let index=temparr.findIndex(contact=>contact.contact_no===selectedState.contact_no)
-    temparr[index].message=msgarr;
+     temparr[index].message=msgarr;
+    setContactState(temparr)
+    // let index=contactState.findIndex(contact=>contact.contact_no===selectedState.contact_no)
+    // contactState[index].message=msgarr;
   }
 
   return (
@@ -40,7 +43,7 @@ function HomePage() {
       </Box>
       <Box sx={{ border: ".05px solid #2f3b44" }} />
       <Box width="70%" sx={{ background: "#1f2c33" }}>
-        <RightSide selectedState={selectedState} onMsgSend={onMsgSend}/>
+        <RightSide selectedState={selectedState} onMsgSend={onMsgSend} contactState={contactState}/>
       </Box>
     </Box>
   );
