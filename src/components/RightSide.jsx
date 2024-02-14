@@ -28,8 +28,8 @@ function RightSide(props) {
 
   const styles1 = {
     backgroundImage: `url(${bg})`,
-    maxHeight:"fit-content",
-    height:"82vh"
+    height:"fit-content",
+    minHeight:"82vh"
   };
 
   const styles2 = {
@@ -54,7 +54,7 @@ function RightSide(props) {
               scrollbarWidth: "none",
             }}
           >
-            <Paper style={styles1} >
+            <Paper style={styles1}>
               {props.selectedState.message.map((messages, index) => (
                 <Box display="flex" justifyContent={"flex-end"}>
                   <Box

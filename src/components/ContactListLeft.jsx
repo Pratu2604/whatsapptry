@@ -23,7 +23,7 @@ function ContactListLeft(props) {
               onClick={() => {
                 props.handleContactClick(contact);
               }}
-              sx={props.selectedState &&{backgroundColor:"red"}}
+              // sx={{backgroundColor:"grey"}}
             >
               <ListItemAvatar>
                 <Avatar alt={contact.name} />
@@ -40,8 +40,7 @@ function ContactListLeft(props) {
                     <Box><CheckIcon sx={{height:"18px"}} mt={.07}/></Box>
                     <Box mt={.07}>{contact.message[contact.message.length-1].text}</Box>
                     </Box>
-                  </Typography>
-                  
+                  </Typography>  
                 }
               />
             </ListItemButton>

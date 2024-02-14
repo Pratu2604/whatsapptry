@@ -24,10 +24,6 @@ function LeftSide(props) {
 
   const handleContactClick = (contact) => {
     props.setSelectedState(contact);
-    let color="black";
-    if(props.selectState){
-      color="red";
-    }
   };
 
   return (
@@ -37,7 +33,7 @@ function LeftSide(props) {
         <Grid item>
           <SearchBarLeft handleSearchChange={handleSearchChange} />
         </Grid>
-        <Grid item sx={{ flex: 1, overflow: "scroll", scrollbarWidth: "none", width:"100%" }}>
+        <Grid item sx={{ flex: 1, overflow: "scroll", scrollbarWidth: "none", width:"100%"}}>
           <ContactListLeft
             filteredContacts={filteredContacts}
             selectState={props.selectState}
