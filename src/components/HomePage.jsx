@@ -6,7 +6,7 @@ function HomePage() {
   
   return (
     <Box display="flex" flexDirection="row" height="100vh">
-      <h1>ghjjh</h1>
+      <h1>dfdf</h1>
       <Box width="32%" sx={{ background: "#1f2c33" }}>
         <LeftSide />
       </Box>
