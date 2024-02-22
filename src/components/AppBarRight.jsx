@@ -2,8 +2,10 @@ import { Box, Avatar, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VideocamIcon from "@mui/icons-material/Videocam";
+import { useSelector } from "react-redux";
 
 function AppBarRight(props) {
+  const selectedState=useSelector(state=>state.contact.selectedState)
   return (
     <Box
       height="65px"
@@ -16,7 +18,7 @@ function AppBarRight(props) {
         <Avatar />
         <Box display="flex" flexDirection="column" ml={2}>
           <Typography variant="body1" color="white">
-            {props.selectedState.name}
+            {selectedState.name}
           </Typography>
           <Typography variant="caption" color="white">
             online

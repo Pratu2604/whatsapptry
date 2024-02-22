@@ -4,22 +4,29 @@ import bg from "./chatbg.jpeg";
 import chatbg from "./WhatsAppFront.jpeg";
 import AppBarRight from "./AppBarRight";
 import TextBarRight from "./TextBarRight";
+import {useDispatch, useSelector } from "react-redux";
+import onMsgSend from "../actions/sendMsg";
+// import moment from "moment";
+
 
 function RightSide(props) {
   const [input, setInput] = useState("");
+  const selectedState= useSelector(state=>state.contact.selectedState)
+  const dispatch=useDispatch()
 
   let d = new Date();
   let time = d.toLocaleTimeString(undefined, {
     hour: "2-digit",
     minute: "2-digit",
   });
+  // let time=moment().format("LT")
 
   const handleSend = () => {
     setInput("");
     let newObj = {};
     newObj.text = input;
     newObj.time = time;
-    props.onMsgSend(newObj);
+    dispatch(onMsgSend(newObj));
   };
 
   const handleSearchChange = (e) => {
@@ -36,7 +43,7 @@ function RightSide(props) {
     backgroundImage: `url(${chatbg})`,
   };
 
-  if (props.selectedState !== null) {
+  if (selectedState !== null) {
     return (
       <Box
         display="flex"
@@ -46,7 +53,7 @@ function RightSide(props) {
         alignItems="center"
       >
         <Box width="100vw" maxWidth="100%">
-          <AppBarRight selectedState={props.selectedState} />
+          <AppBarRight />
           <Box
             height="calc(100vh - 65px - 60px)"
             sx={{
@@ -55,7 +62,7 @@ function RightSide(props) {
             }}
           >
             <Paper style={styles1}>
-              {props.selectedState.message.map((messages, index) => (
+              {selectedState.message.map((messages, index) => (
                 <Box display="flex" justifyContent={"flex-end"}>
                   <Box
                     key={index}

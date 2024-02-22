@@ -11,19 +11,23 @@ import {
   ListItemButton,
 } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
+import { useSelector } from 'react-redux';
 
 function ContactListLeft(props) {
-
+  const selectedState = useSelector((state) => state.contact.selectedState)
   return (
     <List sx={{ background: "#1f2c33" }}>
       {props.filteredContacts.map((contact, index) => (
-        <Grid item >
+        <Grid item>
           <ListItem alignItems="flex-start" key={index}>
             <ListItemButton
               onClick={() => {
                 props.handleContactClick(contact);
               }}
-              // sx={{backgroundColor:"grey"}}
+              sx={{
+                backgroundColor:( selectedState &&
+                  selectedState.id-1 === index ? "grey" : "transparent")
+              }}
             >
               <ListItemAvatar>
                 <Avatar alt={contact.name} />

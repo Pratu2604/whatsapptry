@@ -3,15 +3,16 @@ import AppBarLeft from "./AppBarLeft";
 import SearchBarLeft from "./SearchBarLeft";
 import ContactListLeft from "./ContactListLeft";
 import { Grid,Box } from "@mui/material";
+import { useSelector,useDispatch} from 'react-redux';
+import {  setSelectedState } from "../feature/counter/contactSlice";
 
 function LeftSide(props) {
-  //   let d = new Date();
-  //   let time =d.toLocaleTimeString(undefined, {
-  //     hour:   '2-digit',
-  //     minute: '2-digit',
-  // });
+  
+  const contactState = useSelector((state)=>state.contact.contactState)
+  console.log(contactState)
+  const dispatch=useDispatch();
 
-  const cloneContactState = [...props.contactState];
+  const cloneContactState = [...contactState];
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredContacts = cloneContactState.filter((contact) =>
@@ -23,7 +24,7 @@ function LeftSide(props) {
   };
 
   const handleContactClick = (contact) => {
-    props.setSelectedState(contact);
+    dispatch(setSelectedState(contact))
   };
 
   return (
@@ -36,7 +37,6 @@ function LeftSide(props) {
         <Grid item sx={{ flex: 1, overflow: "scroll", scrollbarWidth: "none", width:"100%"}}>
           <ContactListLeft
             filteredContacts={filteredContacts}
-            selectState={props.selectState}
             handleContactClick={handleContactClick}
           />
         </Grid>
