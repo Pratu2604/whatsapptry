@@ -1,11 +1,25 @@
-import { Box, Avatar, Typography } from "@mui/material";
+import { Box, Avatar, Typography, Grid, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VideocamIcon from "@mui/icons-material/Videocam";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { setSelectedState } from "../feature/counter/contactSlice";
+import { Navigate } from "react-router-dom";
+import { ContactSupportOutlined } from "@mui/icons-material";
 
-function AppBarRight(props) {
-  const selectedState=useSelector(state=>state.contact.selectedState)
+function AppBarRight() {
+  const contactState = useSelector((state) => state.contact.contactState);
+  const params = useParams();
+  const selectedContact = parseInt(params.id);
+  // console.log(selectedContact);
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
+  const Index = contactState.findIndex(
+    (contact) => contact.id === selectedContact
+  );
   return (
     <Box
       height="65px"
@@ -14,11 +28,26 @@ function AppBarRight(props) {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Box display="flex" alignItems="center">
-        <Avatar />
+      <Box display="flex">
+        {/* <Link path="/"> */}
+        <IconButton onClick={()=>{console.log(dispatch(setSelectedState(null)));console.log("ok")}}>
+          <ArrowBackIcon
+            color="white"
+            mr={2}
+            mt={1}
+            sx={{
+              display: { lg: "none", md: "none", sm: "none", xs: "block" },
+            }}
+          />
+        </IconButton>
+        {/* </Link> */}
+
+        <Box>
+          <Avatar />
+        </Box>
         <Box display="flex" flexDirection="column" ml={2}>
           <Typography variant="body1" color="white">
-            {selectedState.name}
+            {contactState[Index].name}
           </Typography>
           <Typography variant="caption" color="white">
             online

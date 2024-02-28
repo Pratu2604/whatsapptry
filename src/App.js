@@ -1,20 +1,15 @@
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { store } from "./app/store";
 import HomePage from "./components/HomePage";
-import {  Grid } from "@mui/material";
-import { Provider } from "react-redux";
-
+import { Grid } from "@mui/material";
 
 function App() {
   return (
-    <Provider store={store}>
     <Grid container>
       <Grid item sm={12} md={12} lg={12}>
-      <HomePage />
+        <HomePage />
       </Grid>
     </Grid>
-  </Provider>
-    
   );
 }
 

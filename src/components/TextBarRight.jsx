@@ -4,9 +4,9 @@ import {
     IconButton,
   } from "@mui/material";
   
-  import AddIcon from "@mui/icons-material/Add";
-  import SendIcon from "@mui/icons-material/Send";
-  import EmojiEmotionsOutlinedIcon from "@mui/icons-material/EmojiEmotionsOutlined";
+import AddIcon from "@mui/icons-material/Add";
+import SendIcon from "@mui/icons-material/Send";
+import EmojiEmotionsOutlinedIcon from "@mui/icons-material/EmojiEmotionsOutlined";
 
 function TextBarRight(props){
     return(<Box
@@ -39,4 +39,5 @@ function TextBarRight(props){
         </IconButton>
       </Box>)
 }
+
 export default TextBarRight;

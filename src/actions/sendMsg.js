@@ -2,16 +2,17 @@ import { setMessage } from "../feature/counter/contactSlice";
 
 function onMsgSend(msg) {
   return (dispatch, getState) => {
+    
     const selectedState = getState().contact.selectedState;
     const contactState = getState().contact.contactState;
-
-    let msgarr = [...selectedState.message];
-    msgarr.push(msg);
-    let index = contactState.findIndex(
-      (contact) => contact.contact_no === selectedState.contact_no
+    const Index = contactState.findIndex(
+      (contact) => contact.id === selectedState
     );
 
-    dispatch(setMessage({ index, msgarr }));
+    let msgarr = [...contactState[Index].message];
+    msgarr.push(msg);
+
+    dispatch(setMessage({ Index, msgarr }));
   };
 }
 export default onMsgSend;
