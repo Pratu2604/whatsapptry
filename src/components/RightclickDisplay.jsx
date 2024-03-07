@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, Paper, Divider, Typography } from "@mui/material";
 import bg from "./chatbg.jpeg";
 import AppBarRight from "./AppBarRight";
@@ -28,11 +28,13 @@ function RightclickDisplay() {
   let time = moment().format("LT");
 
   const handleSend = () => {
-    setInput("");
-    let newObj = {};
-    newObj.text = input;
-    newObj.time = time;
-    dispatch(onMsgSend(newObj));
+    if (input.trim()) {
+      setInput("");
+      let newObj = {};
+      newObj.text = input;
+      newObj.time = time;
+      dispatch(onMsgSend(newObj));
+    }
   };
 
   const handleSearchChange = (e) => {
@@ -47,8 +49,8 @@ function RightclickDisplay() {
 
   return (
     <Box
-      //   display="flex"
-      //   flexDirection="row"
+      // display="flex"
+      // flexDirection="row"
       height="100vh"
       justifyContent="center"
       alignItems="center"

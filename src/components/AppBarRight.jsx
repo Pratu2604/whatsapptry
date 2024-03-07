@@ -3,11 +3,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { setSelectedState } from "../feature/counter/contactSlice";
 import { Navigate } from "react-router-dom";
-import { ContactSupportOutlined } from "@mui/icons-material";
+// import { ContactSupportOutlined } from "@mui/icons-material";
 
 function AppBarRight() {
   const contactState = useSelector((state) => state.contact.contactState);

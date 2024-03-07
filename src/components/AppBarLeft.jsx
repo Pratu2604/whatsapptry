@@ -1,5 +1,5 @@
 import IconButton from "@mui/material/IconButton";
-import { Box,Avatar, Tooltip } from "@mui/material";
+import { Box, Avatar, Tooltip } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 function AppBarLeft() {
@@ -14,11 +14,7 @@ function AppBarLeft() {
       <Box>
         <Avatar />
       </Box>
-      <Box
-        display="flex"
-        flexDirection="row"
-        justifyContent="space-between"
-      >
+      <Box display="flex" flexDirection="row" justifyContent="space-between">
         <Box mr={1}>
           <Tooltip title="Groups">
             <IconButton>
@@ -42,7 +38,7 @@ function AppBarLeft() {
             </IconButton>
           </Tooltip>
         </Box>
-        <Box mr={1} >
+        <Box mr={1}>
           <Tooltip title="Status">
             <IconButton>
               <svg
@@ -110,7 +106,7 @@ function AppBarLeft() {
             </IconButton>
           </Tooltip>
         </Box>
-        <Box mr={1} >
+        <Box mr={1}>
           <Tooltip title="New Chat">
             <IconButton>
               <svg
