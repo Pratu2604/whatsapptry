@@ -21,9 +21,9 @@ function LeftSide() {
 
   return (
     <Grid container sx={{ height: "90%" }}>
-      <Box width="30%"><AppBarLeft/></Box>
+      <Box width="100%"><AppBarLeft/></Box>
       <Grid container direction="column" height="100%">
-        <Grid item>
+        <Grid item >
           <SearchBarLeft 
           handleSearchChange={handleSearchChange} 
           />

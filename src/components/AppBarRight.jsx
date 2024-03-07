@@ -6,16 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {  useParams } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { setSelectedState } from "../feature/counter/contactSlice";
-import { Navigate } from "react-router-dom";
-// import { ContactSupportOutlined } from "@mui/icons-material";
 
 function AppBarRight() {
   const contactState = useSelector((state) => state.contact.contactState);
   const params = useParams();
   const selectedContact = parseInt(params.id);
-  // console.log(selectedContact);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const Index = contactState.findIndex(
     (contact) => contact.id === selectedContact
@@ -29,7 +25,6 @@ function AppBarRight() {
       alignItems="center"
     >
       <Box display="flex">
-        {/* <Link path="/"> */}
         <IconButton onClick={()=>{console.log(dispatch(setSelectedState(null)));console.log("ok")}}>
           <ArrowBackIcon
             color="white"
@@ -40,8 +35,6 @@ function AppBarRight() {
             }}
           />
         </IconButton>
-        {/* </Link> */}
-
         <Box>
           <Avatar />
         </Box>

@@ -5,7 +5,7 @@ function onMsgSend(msg) {
     
     const selectedState = getState().contact.selectedState;
     const contactState = getState().contact.contactState;
-    const Index = contactState.findIndex(
+    const Index= contactState.findIndex(
       (contact) => contact.id === selectedState
     );
 

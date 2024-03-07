@@ -1,37 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Define a type for your object
+type msgObject={
+  text:string,
+  time:string,
+}
+type myObject = {
+  id: number;
+  name: string;
+  contact_no: string,
+  message:msgObject[],
+};
 
-// type msgObject={
-//   text:string,
-//   time:string,
-// }
-// type myObject = {
-//   id: number;
-//   name: string;
-//   contact_no: string,
-//   message:msgObject[],
-// };
+interface Contact {
+  contactState:myObject[],
+  selectedState: any,
+}
 
-// // // Declare an array of objects of type MyObject
-// // let myArray: MyObject[] = [];
-
-// // // Add objects to the array
-// // myArray.push({ id: 1, name: "Object 1" });
-// // myArray.push({ id: 2, name: "Object 2" });
-// // // Add more objects as needed
-
-// // // Access elements in the array
-// // console.log(myArray[0].name); // Output: Object 1
-// // console.log(myArray[1].id);   // Output: 2
-
-
-// interface Contact {
-//   contactState:myObject[];
-//   selectedState: any;
-// }
-
-const initialState  = {
+const initialState:Contact  = {
   contactState: [
     {
       id: 1,
@@ -114,7 +99,6 @@ export const contactSlice = createSlice({
   initialState,
   reducers: {
     setSelectedState: (state, action) => {
-      // console.log("$$$$$$$$$$$$", action.payload);
       state.selectedState = action.payload;
     },
     setMessage: (state, action) => {
@@ -126,6 +110,6 @@ export const contactSlice = createSlice({
   },
 });
 
-export const { setSelectedState, setContactState, setMessage } = contactSlice.actions;
+// export const { setSelectedState, setContactState, setMessage } = contactSlice.actions;
 
-export default contactSlice.reducer;
+// export default contactSlice.reducer;
