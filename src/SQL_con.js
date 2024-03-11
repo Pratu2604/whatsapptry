@@ -9,7 +9,7 @@ const pool = mysql.createPool({
   });
 
 app.get('/contact',(req,res)=>{
-    pool.query("SELECT * FROM contactlist", function (err, result, fields) {
+    pool.query("SELECT * from contactlist", function (err, result, fields) {
         if(err) {
             console.error(err);
             return;
@@ -23,13 +23,13 @@ app.get('/contact',(req,res)=>{
 })
 
 app.get('/contact/:id',(req,res)=>{
-pool.query("SELECT * FROM contactlist where id=?",[req.params.id], function (err, result, fields) {
+pool.query("SELECT * from contactlist where id=?",[req.params.id], function (err, result, fields) {
     if(err) {
         console.error(err);
         return;
     }
     // console.log(result);
-    console.log(req.params.id)
+    // console.log(req.params.id)
     res.send(result);
     // for(let x in result){
     //     console.log(result[x].contact_no)
@@ -44,7 +44,7 @@ app.get('/contact/:id',(req,res)=>{
             return;
         }
         // console.log(result);
-        console.log(req.params.id)
+        // console.log(req.params.id)
         res.send(result);
         // for(let x in result){
         //     console.log(result[x].contact_no)

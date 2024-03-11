@@ -1,14 +1,14 @@
-import { Routes, Route } from "react-router-dom";
-import RightclickDisplay from "./RightclickDisplay";
-import RightInitialDisplay from "./RightInitialDisplay";
+// import { Routes, Route } from "react-router-dom";
+// import RightClickDisplay from "./RightClickDisplay";
+// import RightInitialDisplay from "./RightInitialDisplay";
 
-function RightSide() {
-  return (
-    <Routes>
-      <Route path="/" element={<RightInitialDisplay />} />
-      <Route path="/:id" element={<RightclickDisplay />} />
-    </Routes>
-  );
-}
+// function RightSide() {
+//   return (
+//     <Routes>
+//       <Route path="/" element={<RightInitialDisplay />} />
+//       <Route path="/:id" element={<RightClickDisplay />} />
+//     </Routes>
+//   );
+// }
 
-export default RightSide;
+// export default RightSide;

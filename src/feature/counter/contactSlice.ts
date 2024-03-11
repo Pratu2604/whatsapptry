@@ -98,18 +98,18 @@ export const contactSlice = createSlice({
   name: "contacts",
   initialState,
   reducers: {
-    setSelectedState: (state, action) => {
+    setSelectedState: (state, action):any => {
       state.selectedState = action.payload;
     },
-    setMessage: (state, action) => {
+    setMessage: (state, action):any => {
       state.contactState[action.payload.Index].message = action.payload.msgarr;
     },
-    setContactState: (state, action) => {
+    setContactState: (state, action):any => {
       state.contactState = action.payload;
     },
   },
 });
 
-// export const { setSelectedState, setContactState, setMessage } = contactSlice.actions;
+export const { setSelectedState, setContactState, setMessage } = contactSlice.actions;
 
-// export default contactSlice.reducer;
+export default contactSlice.reducer;
