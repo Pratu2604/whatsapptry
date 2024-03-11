@@ -15,7 +15,7 @@ function AppBarLeft() {
       <Box>
         <Avatar />
       </Box>
-      {/* <Box display="flex" flexDirection="row">
+      <Box display="flex" flexDirection="row">
         <Box mr={1}>
           <Tooltip title="Groups">
             <IconButton>
@@ -137,7 +137,7 @@ function AppBarLeft() {
             </IconButton>
           </Tooltip>
         </Box>
-      </Box> */}
+      </Box>
     </Box>
   );
 }
